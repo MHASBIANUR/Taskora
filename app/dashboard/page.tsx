@@ -58,11 +58,7 @@ export default function DashboardPage() {
       .select()
       .single();
 
-    if (error) {
-      console.error("Error creating board:", error);
-      return;
-    }
-
+    if (error) return console.error("Error creating board:", error);
     if (data) {
       setBoards([...boards, data]);
       setNewBoardName("");
@@ -91,9 +87,7 @@ export default function DashboardPage() {
 
     if (!error && data) {
       setBoards(
-        boards.map((b) =>
-          b.id === editBoardId ? { ...b, name: editBoardName } : b
-        )
+        boards.map((b) => (b.id === editBoardId ? { ...b, name: editBoardName } : b))
       );
       setEditBoardId(null);
       setEditBoardName("");
@@ -114,10 +108,8 @@ export default function DashboardPage() {
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-wide animate-fadeIn">
           Welcome In <span className="text-cyan-300">Taskora</span>
         </h1>
-
-        {/* Additional convincing text */}
         <p className="mt-4 text-gray-400 text-lg md:text-xl italic">
-          Task Management Or Productivity Tool {" "}
+          Task Management Or Productivity Tool{" "}
           <span className="text-cyan-300 font-bold">TASKORA</span>!
         </p>
       </div>
@@ -180,10 +172,16 @@ export default function DashboardPage() {
                     className="px-3 py-2 rounded bg-gray-700 w-full outline-none"
                   />
                   <div className="flex gap-2">
-                    <button onClick={saveEdit} className="bg-green-600 px-3 py-1 rounded hover:bg-green-700">
+                    <button
+                      onClick={saveEdit}
+                      className="bg-green-600 px-3 py-1 rounded hover:bg-green-700"
+                    >
                       Save
                     </button>
-                    <button onClick={() => setEditBoardId(null)} className="bg-gray-600 px-3 py-1 rounded hover:bg-gray-500">
+                    <button
+                      onClick={() => setEditBoardId(null)}
+                      className="bg-gray-600 px-3 py-1 rounded hover:bg-gray-500"
+                    >
                       Cancel
                     </button>
                   </div>
@@ -195,15 +193,19 @@ export default function DashboardPage() {
                     className="cursor-pointer"
                   >
                     <h2 className="font-bold text-xl">{b.name}</h2>
-                    <p className="text-sm text-gray-400 mt-2">
-                      Category: {b.category}
-                    </p>
+                    <p className="text-sm text-gray-400 mt-2">Category: {b.category}</p>
                   </div>
                   <div className="flex justify-end gap-2 mt-4">
-                    <button onClick={() => startEdit(b)} className="text-yellow-400 hover:text-yellow-500">
+                    <button
+                      onClick={() => startEdit(b)}
+                      className="text-yellow-400 hover:text-yellow-500"
+                    >
                       ✏️
                     </button>
-                    <button onClick={() => deleteBoard(b.id)} className="text-red-500 hover:text-red-600">
+                    <button
+                      onClick={() => deleteBoard(b.id)}
+                      className="text-red-500 hover:text-red-600"
+                    >
                       🗑️
                     </button>
                   </div>
@@ -225,10 +227,7 @@ export default function DashboardPage() {
           50% { opacity: 1; transform: translateY(5px); }
           100% { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fadeIn {
-          animation: fadeBounce 0.6s ease forwards;
-        }
+        .animate-fadeIn { animation: fadeBounce 0.6s ease forwards; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }

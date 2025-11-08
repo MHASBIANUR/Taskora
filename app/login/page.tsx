@@ -1,11 +1,11 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { HiOutlineMail } from "react-icons/hi";
-import { HiOutlineLockClosed, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
+import { HiOutlineMail, HiOutlineLockClosed, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [raindrops, setRaindrops] = useState<{ left: number; delay: number; duration: number }[]>([]);
 
   useEffect(() => {
-    const drops = [...Array(100)].map(() => ({
+    const drops = Array.from({ length: 100 }).map(() => ({
       left: Math.random() * 100,
       delay: Math.random() * 2,
       duration: 3 + Math.random() * 3,
@@ -34,14 +34,9 @@ export default function LoginPage() {
       return;
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      setMessage("❌ " + error.message);
-    } else if (data.user) {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) setMessage("❌ " + error.message);
+    else if (data.user) {
       setMessage("✅ Logged in!");
       setTimeout(() => router.push("/dashboard"), 500);
     }
@@ -49,7 +44,6 @@ export default function LoginPage() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-cyan-600 overflow-hidden">
-      
       {/* Hujan */}
       <div className="absolute inset-0">
         {raindrops.map((drop, i) => (
@@ -116,7 +110,6 @@ export default function LoginPage() {
           </button>
         </div>
 
-        {/* Submit */}
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
@@ -127,14 +120,14 @@ export default function LoginPage() {
         {message && <p className="text-center text-sm text-gray-200">{message}</p>}
 
         <p className="text-center text-sm text-gray-400">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/register" className="text-blue-400 hover:underline">
             Register here
           </Link>
         </p>
       </form>
 
-      {/* Styles Hujan */}
+      {/* Hujan styles */}
       <style jsx>{`
         .raindrop {
           position: absolute;
@@ -146,11 +139,8 @@ export default function LoginPage() {
           animation-timing-function: linear;
           animation-iteration-count: infinite;
         }
-
         @keyframes fall {
-          to {
-            transform: translateY(110vh);
-          }
+          to { transform: translateY(110vh); }
         }
       `}</style>
     </div>

@@ -1,4 +1,3 @@
-// app/boards/[boardId]/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -34,7 +33,6 @@ export default function BoardPage() {
   const [board, setBoard] = useState<Board | null>(null);
   const [columns, setColumns] = useState<Column[]>([]);
   const [cards, setCards] = useState<Record<string, Card[]>>({});
-  const [loading, setLoading] = useState(true);
 
   // form states
   const [newColumnName, setNewColumnName] = useState("");
@@ -84,8 +82,6 @@ export default function BoardPage() {
         });
         setCards(grouped);
       }
-
-      setLoading(false);
     }
     loadBoard();
   }, [boardId, router]);
@@ -114,11 +110,7 @@ export default function BoardPage() {
         for (const [colId, colCards] of Object.entries(prev)) {
           newState[colId] = colCards.filter((c) => c.id !== card.id);
         }
-        // Masukkan card ke target column
-        newState[targetColumn.id] = [
-          ...(newState[targetColumn.id] || []),
-          data,
-        ];
+        newState[targetColumn.id] = [...(newState[targetColumn.id] || []), data];
         return newState;
       });
     }
@@ -256,7 +248,7 @@ export default function BoardPage() {
 
       <div className="text-center mt-10">
         <h1 className="text-4xl font-extrabold">{board?.name}</h1>
-        <p className="mt-2 text-gray-400 text-lg">That's your board ⬆️</p>
+        <p className="mt-2 text-gray-400 text-lg">That&apos;s your board ⬆️</p>
       </div>
 
       {/* Add Column */}
