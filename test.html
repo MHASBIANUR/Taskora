@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Supabase Signup Test</title>
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabaseUrl = "https://tproiegolniizfgwrfaq.supabase.co"; 
+    const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."; 
+
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+    async function testSignup() {
+      const email = "hasbi_test@gmail.com";
+      const password = "123456";
+
+      console.log("Trying to sign up...", { email, password });
+
+      const { data, error } = await supabase.auth.signUp({ email, password });
+
+      console.log("Signup data:", data);
+      console.log("Signup error:", error);
+    }
+
+    window.testSignup = testSignup;
+  </script>
+</head>
+<body>
+  <h1>Supabase Signup Test</h1>
+  <button onclick="testSignup()">Test Signup</button>
+</body>
+</html>
