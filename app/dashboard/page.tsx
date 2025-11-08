@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/navbar";
+import { User } from "@supabase/supabase-js"; 
 
 interface Board {
   id: string;
@@ -13,7 +14,6 @@ interface Board {
 
 export default function DashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
   const [profileId, setProfileId] = useState<string | null>(null);
   const [boards, setBoards] = useState<Board[]>([]);
   const [newBoardName, setNewBoardName] = useState("");
@@ -26,7 +26,6 @@ export default function DashboardPage() {
     async function loadUserBoards() {
       const { data: authData } = await supabase.auth.getUser();
       if (!authData.user) return router.push("/login");
-      setUser(authData.user);
 
       const { data: profile } = await supabase
         .from("user_profiles")
