@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Taskora
 
-## Getting Started
+Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur, menyelesaikan, dan melacak tugas sehari-hari dengan cepat dan efisien. Dirancang dengan konsep offline-first dan realtime sync, Taskora memastikan pengalaman pengguna tetap lancar meskipun tanpa koneksi internet.
 
-First, run the development server:
+✨ **Live Demo:** https://taskora-phi.vercel.app/
+
+---
+
+## 🚀 Fitur Utama
+
+- **Realtime Sync** — perubahan tugas otomatis tersinkron antar perangkat.
+- **Offline-First** — tetap dapat digunakan meski tanpa koneksi internet.
+- **Modern UI/UX** — desain minimalis, rapi, dan responsif.
+- **Autentikasi Aman** — login menggunakan sistem auth berbasis Supabase.
+- **Performa Tinggi** — mampu menangani daftar tugas yang besar.
+
+---
+
+## 🛠 Teknologi yang Digunakan
+
+| Teknologi | Fungsi |
+|----------|--------|
+| **Next.js** | Frontend + rendering cepat |
+| **Tailwind CSS** | Styling modern & efisien |
+| **Node.js + Express** | Backend API utama |
+| **Supabase** | Database + Realtime sync + Auth |
+| **Vercel** | Deploy frontend |
+| **Railway / Render** (opsional) | Hosting backend |
+
+---
+
+## 👤 Peran Saya
+
+Sebagai **Fullstack Developer**, saya mengerjakan:
+
+- Pembuatan UI/UX yang responsif dan modern  
+- Implementasi autentikasi pengguna  
+- Integrasi backend Node.js + database Supabase  
+- Realtime data sync menggunakan Supabase Realtime  
+- Sistem offline-first untuk memastikan aplikasi tetap berjalan meskipun tanpa internet
+
+---
+
+## 🔥 Tantangan
+
+- Mensinkronkan data antar perangkat secara realtime  
+- Memastikan performa tetap cepat meski jumlah tugas besar  
+- Mencegah kehilangan data saat pengguna berada dalam kondisi offline  
+- Menjaga keamanan dan privasi data pengguna
+
+---
+
+## ✅ Solusi
+
+- Menggunakan **Supabase Realtime** untuk perubahan instan  
+- Membangun sistem **offline-first** dengan caching & local storage  
+- Optimasi query Supabase untuk jumlah data besar  
+- Autentikasi aman melalui middleware custom  
+- Membuat desain UI yang intuitif dan mudah dinavigasi
+
+---
+
+## 📸 Tampilan Aplikasi
+
+![Landing Page Preview](public/taskora.png)
+
+---
+
+## 🧩 Cara Menjalankan Proyek
 
 ```bash
+# Install dependencies
+npm install
+
+# Jalankan frontend
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Backend
+cd backend
+npm install
+npm start
