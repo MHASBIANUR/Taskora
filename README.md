@@ -108,7 +108,3 @@ npm install
 # Jalankan frontend
 npm run dev
 
-# Backend
-cd backend
-npm install
-npm start
