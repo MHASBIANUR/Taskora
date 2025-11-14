@@ -6,6 +6,12 @@ Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur, menye
 
 ---
 
+## 📸 Tampilan Aplikasi
+
+![Landing Page Preview](public/taskora.png)
+
+---
+
 ## 🚀 Fitur Utama
 
 - **Realtime Sync** — perubahan tugas otomatis tersinkron antar perangkat.
@@ -60,11 +66,39 @@ Sebagai **Fullstack Developer**, saya mengerjakan:
 
 ---
 
-## 📸 Tampilan Aplikasi
+## 📁 Struktur Proyek 
+```bash
+app/
+│
+├── api/
+│   └── generate/
+│       └── route.ts          # API route for generation
+├── boards/
+│   └── [boardId]/
+│       └── page.tsx          # Dynamic board detail page
+├── dashboard/
+│   └── page.tsx              # Dashboard page
+├── login/
+│   └── page.tsx              # Login page
+├── register/
+│   └── page.tsx              # Register page
+├── layout.tsx                # Root layout
+├── page.tsx                  # Landing page
+└── globals.css               # Global styles
+components/
+├── layout.tsx                # Shared layout component
+└── navbar.tsx                # Navigation bar component
+lib/
+└── supabase.ts               # Supabase client configuration
+public/
+└── *                         # Static assets (images, icons, etc.)
 
-![Landing Page Preview](public/taskora.png)
-
+next.config.js                # Next.js configuration  
+tsconfig.json                 # TypeScript configuration  
+package.json                  # Dependencies & scripts  
+```
 ---
+
 
 ## 🧩 Cara Menjalankan Proyek
 
