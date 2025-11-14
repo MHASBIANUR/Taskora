@@ -31,7 +31,6 @@ Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur, menye
 | **Node.js + Express** | Backend API utama |
 | **Supabase** | Database + Realtime sync + Auth |
 | **Vercel** | Deploy frontend |
-| **Railway / Render** (opsional) | Hosting backend |
 
 ---
 
