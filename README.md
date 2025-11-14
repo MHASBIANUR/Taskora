@@ -1,12 +1,12 @@
 # Taskora
 
-Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur, menyelesaikan, dan melacak tugas sehari-hari dengan cepat dan efisien. Dirancang dengan konsep offline-first dan realtime sync, Taskora memastikan pengalaman pengguna tetap lancar meskipun tanpa koneksi internet.
+Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur dan melacak tugas harian secara efisien. Aplikasi ini dirancang cepat, ringan, realtime, serta tetap berfungsi dalam kondisi offline melalui pendekatan **offline-first**.
 
 ✨ **Live Demo:** https://taskora-phi.vercel.app/
 
 ---
 
-## 📸 Tampilan Aplikasi
+## 📸 Tampilan
 
 ![Landing Page Preview](public/taskora.png)
 
@@ -14,90 +14,80 @@ Taskora adalah aplikasi to-do list modern yang membantu pengguna mengatur, menye
 
 ## 🚀 Fitur Utama
 
-- **Realtime Sync** — perubahan tugas otomatis tersinkron antar perangkat.
-- **Offline-First** — tetap dapat digunakan meski tanpa koneksi internet.
-- **Modern UI/UX** — desain minimalis, rapi, dan responsif.
-- **Autentikasi Aman** — login menggunakan sistem auth berbasis Supabase.
-- **Performa Tinggi** — mampu menangani daftar tugas yang besar.
+- **Realtime Sync** — perubahan tugas tersinkron otomatis antar perangkat.  
+- **Offline-First** — aplikasi tetap bekerja walaupun tanpa koneksi internet.  
+- **UI Modern & Responsif** — tampilan clean, cepat, dan nyaman digunakan.  
+- **Autentikasi Pengguna** — login aman melalui Supabase Auth.  
+- **Manajemen Tugas Lengkap** — tambah, edit, hapus, tandai selesai, dsb.
 
 ---
 
 ## 🛠 Teknologi yang Digunakan
 
-| Teknologi | Fungsi |
-|----------|--------|
-| **Next.js** | Frontend + rendering cepat |
-| **Tailwind CSS** | Styling modern & efisien |
-| **Node.js + Express** | Backend API utama |
-| **Supabase** | Database + Realtime sync + Auth |
-| **Vercel** | Deploy frontend |
+| Teknologi              | Fungsi                                                         |
+|------------------------|-----------------------------------------------------------------|
+| **Next.js (App Router)** | Frontend + backend API Routes untuk performa tinggi           |
+| **Tailwind CSS**       | Styling cepat, konsisten, dan modern                           |
+| **Supabase**           | Database utama, autentikasi, dan fitur realtime                |
+| **Vercel**             | Deployment cepat & stabil untuk aplikasi Next.js               |
 
 ---
 
 ## 👤 Peran Saya
 
-Sebagai **Fullstack Developer**, saya mengerjakan:
+Sebagai **Fullstack Developer**, saya bertanggung jawab untuk:
 
-- Pembuatan UI/UX yang responsif dan modern  
-- Implementasi autentikasi pengguna  
-- Integrasi backend Node.js + database Supabase  
-- Realtime data sync menggunakan Supabase Realtime  
-- Sistem offline-first untuk memastikan aplikasi tetap berjalan meskipun tanpa internet
+- Mendesain UI yang modern dan responsif.  
+- Mengelola integrasi **realtime** menggunakan Supabase.  
+- Membangun API dengan **Next.js API Routes**.  
+- Menerapkan strategi **offline-first** (caching, local storage).  
+- Mengoptimalkan performa aplikasi untuk skala data besar.
 
 ---
 
 ## 🔥 Tantangan
 
-- Mensinkronkan data antar perangkat secara realtime  
-- Memastikan performa tetap cepat meski jumlah tugas besar  
-- Mencegah kehilangan data saat pengguna berada dalam kondisi offline  
-- Menjaga keamanan dan privasi data pengguna
+- Menjaga konsistensi data realtime antar perangkat.  
+- Mengoptimalkan performa saat jumlah tugas sangat banyak.  
+- Menjamin keamanan proses autentikasi dan API.
 
 ---
 
 ## ✅ Solusi
 
-- Menggunakan **Supabase Realtime** untuk perubahan instan  
-- Membangun sistem **offline-first** dengan caching & local storage  
-- Optimasi query Supabase untuk jumlah data besar  
-- Autentikasi aman melalui middleware custom  
-- Membuat desain UI yang intuitif dan mudah dinavigasi
+- Menggunakan **Supabase Realtime** untuk sinkronisasi instan.  
+- Menerapkan cache lokal dan strategi offline-first agar pengguna tetap produktif tanpa internet.  
+- Optimasi query, state management, dan teknik rendering virtualized list bila diperlukan.  
+- Menjalankan logic sensitif di API Routes untuk meningkatkan keamanan.
 
 ---
 
-## 📁 Struktur Proyek 
+## 📁 Struktur Proyek (Ringkas)
+
 ```bash
 app/
-│
 ├── api/
-│   └── generate/
-│       └── route.ts          # API route for generation
-├── boards/
-│   └── [boardId]/
-│       └── page.tsx          # Dynamic board detail page
-├── dashboard/
-│   └── page.tsx              # Dashboard page
-├── login/
-│   └── page.tsx              # Login page
-├── register/
-│   └── page.tsx              # Register page
-├── layout.tsx                # Root layout
-├── page.tsx                  # Landing page
-└── globals.css               # Global styles
+│   └── generate/route.ts
+├── boards/[boardId]/page.tsx
+├── dashboard/page.tsx
+├── login/page.tsx
+├── register/page.tsx
+├── layout.tsx
+├── page.tsx
+├── globals.css
 components/
-├── layout.tsx                # Shared layout component
-└── navbar.tsx                # Navigation bar component
+├── layout.tsx
+└── navbar.tsx
 lib/
-└── supabase.ts               # Supabase client configuration
+└── supabase.ts
 public/
-└── *                         # Static assets (images, icons, etc.)
+└── (assets)
 
 next.config.js                # Next.js configuration  
 tsconfig.json                 # TypeScript configuration  
-package.json                  # Dependencies & scripts  
+package.json                  # Dependencies & scripts
 ```
 ---
-
 
 ## 🧩 Cara Menjalankan Proyek
 
@@ -105,6 +95,8 @@ package.json                  # Dependencies & scripts
 # Install dependencies
 npm install
 
-# Jalankan frontend
+# Jalankan development server
 npm run dev
 
+# Buka di browser
+http://localhost:3000
