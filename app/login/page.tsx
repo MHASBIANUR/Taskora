@@ -43,21 +43,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-cyan-600 overflow-hidden">
-      {/* Hujan */}
-      <div className="absolute inset-0">
-        {raindrops.map((drop, i) => (
-          <div
-            key={i}
-            className="raindrop"
-            style={{
-              left: `${drop.left}%`,
-              animationDelay: `${drop.delay}s`,
-              animationDuration: `${drop.duration}s`,
-            }}
-          />
-        ))}
-      </div>
+  <div
+    className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    {/* Hujan */}
+    <div className="absolute inset-0">
+      {raindrops.map((drop, i) => (
+        <div
+          key={i}
+          className="raindrop"
+          style={{
+            left: `${drop.left}%`,
+            animationDelay: `${drop.delay}s`,
+            animationDuration: `${drop.duration}s`,
+          }}
+        />
+      ))}
+    </div>
 
       <form
         onSubmit={handleLogin}
@@ -125,6 +126,12 @@ export default function LoginPage() {
             Register here
           </Link>
         </p>
+        <Link
+  href="/"
+  className="block text-center w-full bg-gray-700 text-white py-2 rounded-lg font-semibold hover:bg-gray-600 transition mt-3"
+>
+  Back to Landing Page
+</Link>
       </form>
 
       {/* Hujan styles */}

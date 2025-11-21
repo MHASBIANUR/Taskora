@@ -13,9 +13,9 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const router = useRouter();
-   const [raindrops, setRaindrops] = useState<{ left: number; delay: number; duration: number }[]>([]);
+  const [raindrops, setRaindrops] = useState<{ left: number; delay: number; duration: number }[]>([]);
 
-    useEffect(() => {
+  useEffect(() => {
     const drops = [...Array(100)].map(() => ({
       left: Math.random() * 100,
       delay: Math.random() * 2,
@@ -48,9 +48,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-cyan-600 overflow-hidden">
-      
-       {/* Hujan */}
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+
+      {/* Hujan */}
       <div className="absolute inset-0">
         {raindrops.map((drop, i) => (
           <div
@@ -132,6 +132,12 @@ export default function RegisterPage() {
             Login here
           </Link>
         </p>
+        <Link
+          href="/"
+          className="block text-center w-full bg-gray-700 text-white py-2 rounded-lg font-semibold hover:bg-gray-600 transition mt-3"
+        >
+          Back to Landing Page
+        </Link>
       </form>
 
       {/* Styles Hujan */}
